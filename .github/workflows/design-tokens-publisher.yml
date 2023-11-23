@@ -1,0 +1,34 @@
+name: Webhook Triggered Workflow
+
+# This workflow is triggered on repository_dispatch events
+on:
+  repository_dispatch:
+    types: [custom-event-type]
+
+jobs:
+  process_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Step to print the entire payload
+      - name: Print Webhook Payload
+        run: |
+          echo "Webhook Payload:"
+          echo '${{ toJson(github.event) }}'
+
+      # Step to use specific data from the payload
+      - name: Use specific data from payload
+        run: |
+          echo "Specific data from payload: ${{ github.event.client_payload.some_data }}"
+
+      # Additional steps to process the payload data
+      # For example, using payload data in a script
+      - name: Process payload data
+        run: |
+          # Assuming 'some_data' is a text value you want to use
+          DATA=${{ github.event.client_payload.some_data }}
+          echo "Processing data: $DATA"
+          # Add your script or command here that uses $DATA

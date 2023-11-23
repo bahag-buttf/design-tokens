@@ -1,0 +1,1 @@
+export { default as designTokens } from './generated/design-tokens.json';

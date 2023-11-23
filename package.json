@@ -1,0 +1,39 @@
+{
+  "name": "@bahag-buttf/design-tokens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && yarn generate && cp -R src/generated/design-tokens.css dist/generated",
+    "generate": "yarn generate:css && yarn generate:json",
+    "generate:css": "ts-node src/scripts/design-tokens-to-css.ts",
+    "generate:json": "ts-node src/scripts/figma-to-design-tokens.ts",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahag-buttf/design-tokens.git"
+  },
+  "keywords": [],
+  "author": "bahag-buttf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bahag-buttf/design-tokens/issues"
+  },
+  "homepage": "https://github.com/bahag-buttf/design-tokens#readme",
+  "devDependencies": {
+    "@types/node": "^20.9.4",
+    "@types/ramda": "^0.29.9",
+    "rgb-hex": "^4.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "ramda": "^0.29.1"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
