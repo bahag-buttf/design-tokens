@@ -22,7 +22,7 @@ jobs:
       # Step to use specific data from the payload
       - name: Use specific data from payload
         run: |
-          echo "Specific data from payload: ${{ github.event.client_payload.some_data }}"
+          echo "Specific data from payload: ${{ github.event.client_payload.data }}"
 
       # Additional steps to process the payload data
       # For example, using payload data in a script
